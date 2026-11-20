@@ -41,6 +41,10 @@ jobs:
           pip install -r ci-requirements.txt
       - name: Install package
         run: pip install -e .
+      - name: Upload coverage
+        env:
+          TOKEN: ${{ secrets.SENTINEL_UPLOAD_TOKEN }}
+        run: test -n "$TOKEN" || (echo "Error: secret SENTINEL_UPLOAD_TOKEN is not set" && exit 1)
       - name: Run tests
         timeout-minutes: 5
         run: python -m pytest -q tests
