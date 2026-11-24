@@ -97,11 +97,11 @@ def match_to_datetime(match: re.Match[str]) -> datetime | date:
 # 24 (hours) * 60 (minutes) * 2 (offset direction) = 2880.
 @lru_cache(maxsize=None)
 def cached_tz(hour_str: str, minute_str: str, sign_str: str) -> timezone:
-    sign = 1 if sign_str == "+" else -1
+    sign_value = 1 if sign_str == "+" else -1
     return timezone(
         timedelta(
-            hours=sign * int(hour_str),
-            minutes=sign * int(minute_str),
+            hours=sign_value * int(hour_str),
+            minutes=sign_value * int(minute_str),
         )
     )
 
