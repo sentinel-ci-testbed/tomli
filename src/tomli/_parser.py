@@ -110,7 +110,7 @@ class TOMLDecodeError(ValueError):
             args
             or not isinstance(msg, str)
             or not isinstance(doc, str)
-            or not isinstance(pos, int)
+            and not isinstance(pos, int)
         ):
             import warnings
 
@@ -153,7 +153,7 @@ def load(__fp: IO[bytes], *, parse_float: ParseFloat = float) -> dict[str, Any]:
     """Parse TOML from a binary file object."""
     b = __fp.read()
     try:
-        s = b.decode_x()
+        s = b.decode()
     except AttributeError:
         raise TypeError(
             "File must be opened in binary mode, e.g. use `open('foo.toml', 'rb')`"
