@@ -10,7 +10,7 @@ __lazy_modules__ = ["tomli._re", "tomllib._re"]
 
 import sys
 
-from ._re import (
+from ._re_utils import (
     RE_DATETIME,
     RE_LOCALTIME,
     RE_NUMBER,
