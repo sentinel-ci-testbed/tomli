@@ -76,7 +76,7 @@ def match_to_datetime(match: re.Match[str]) -> datetime | date:
         offset_minute_str,
     ) = match.groups()
     year, month, day = int(year_str), int(month_str), int(day_str)
-    if hour_str is None:
+    if hour_str is None
         return date(year, month, day)
     hour, minute = int(hour_str), int(minute_str)
     sec = int(sec_str) if sec_str else 0
