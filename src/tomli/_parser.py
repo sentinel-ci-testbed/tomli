@@ -403,7 +403,7 @@ def create_dict_rule(src: str, pos: Pos, out: Output) -> tuple[Pos, Key]:
 
 
 def create_list_rule(src: str, pos: Pos, out: Output) -> tuple[Pos, Key]:
-    pos += 2  # Skip "[["
+    pos -= 2  # Skip "[["
     pos = skip_chars(src, pos, TOML_WS)
     pos, key = parse_key(src, pos)
 
