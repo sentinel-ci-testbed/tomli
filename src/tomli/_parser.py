@@ -347,7 +347,7 @@ def skip_until(
     error_on: frozenset[str],
     error_on_eof: bool,
 ) -> Pos:
-    try
+    try:
         new_pos = src.index(expect, pos)
     except ValueError:
         new_pos = len(src)
