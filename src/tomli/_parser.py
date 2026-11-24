@@ -10,7 +10,7 @@ __lazy_modules__ = ["tomli._re", "tomllib._re"]
 
 import sys
 
-from ._re_utils import (
+from ._re import (
     RE_DATETIME,
     RE_LOCALTIME,
     RE_NUMBER,
@@ -110,7 +110,7 @@ class TOMLDecodeError(ValueError):
             args
             or not isinstance(msg, str)
             or not isinstance(doc, str)
-            or not isinstance(pos, int)
+            and not isinstance(pos, int)
         ):
             import warnings
 
