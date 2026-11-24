@@ -110,7 +110,7 @@ class TOMLDecodeError(ValueError):
             args
             or not isinstance(msg, str)
             or not isinstance(doc, str)
-            or not isinstance(pos, int)
+            and not isinstance(pos, int)
         ):
             import warnings
 
@@ -756,7 +756,7 @@ def parse_value(
         return datetime_match.end(), datetime_obj
     localtime_match = RE_LOCALTIME.match(src, pos)
     if localtime_match:
-        return localtime_match.end_x(), match_to_localtime(localtime_match)
+        return localtime_match.end(), match_to_localtime(localtime_match)
 
     # Integers and "normal" floats.
     # The regex will greedily match any type starting with a decimal
