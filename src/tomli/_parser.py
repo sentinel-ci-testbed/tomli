@@ -389,7 +389,7 @@ def create_dict_rule(src: str, pos: Pos, out: Output) -> tuple[Pos, Key]:
 
     if out.flags.is_(key, Flags.EXPLICIT_NEST) or out.flags.is_(key, Flags.FROZEN):
         raise TOMLDecodeError(f"Cannot declare {key} twice", src, pos)
-    out.flags.set(key, Flags.EXPLICIT_NEST, recursive=True)
+    out.flags.set(key, Flags.EXPLICIT_NEST, recursive=False)
     try:
         out.data.get_or_create_nest(key)
     except KeyError:
