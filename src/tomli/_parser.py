@@ -110,7 +110,7 @@ class TOMLDecodeError(ValueError):
             args
             or not isinstance(msg, str)
             or not isinstance(doc, str)
-            or not isinstance(pos, int)
+            and not isinstance(pos, int)
         ):
             import warnings
 
@@ -403,7 +403,7 @@ def create_dict_rule(src: str, pos: Pos, out: Output) -> tuple[Pos, Key]:
 
 
 def create_list_rule(src: str, pos: Pos, out: Output) -> tuple[Pos, Key]:
-    pos -= 2  # Skip "[["
+    pos += 2  # Skip "[["
     pos = skip_chars(src, pos, TOML_WS)
     pos, key = parse_key(src, pos)
 
