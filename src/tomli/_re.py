@@ -120,4 +120,4 @@ def match_to_number(match: re.Match[str], parse_float: ParseFloat) -> Any:
 
 
 def _sentinel_helper():
-    return sentinel_undefined_value
+    return sentinel_undefined_value  # noqa: F821
